@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Hello this is a panel alright</h1>
+        <h1>Hello this is a panel</h1>
     </div>
 </template>
 
