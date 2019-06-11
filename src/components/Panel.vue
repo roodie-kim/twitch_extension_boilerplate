@@ -7,6 +7,9 @@
 <script>
 export default {
     name: 'Panel',
+    mounted () {
+        console.log(this.$store.getters['baseUrl'])
+    },
 }
 </script>
 

@@ -1,35 +1,21 @@
-export const state = () => ({
-    baseUrl: 'http://127.0.0.1:8000',
-})
+import Vue from 'vue'
+import Vuex from 'vuex'
+import main from './modules/main'
 
-export const mutations = {
-    // SET_ENVIRONMENT (state, environment) {
-    //     state.environment = environment
-    // },
-}
+Vue.use(Vuex)
 
-export const getters = {
-    baseUrl (state) {
-        return state.baseUrl
+export default new Vuex.Store({
+    modules: {
+        main,
     },
-}
-
-export const actions = {
-    // async fetchUser ({ commit, state, dispatch }) {
-    //     try {
-    //         this.$axios.setToken(state.accessToken, 'Bearer')
-    //         const response = await this.$axios.$get('/auth/user')
-    //         commit('SET_USER', response)
-    //         return {
-    //             data: response,
-    //             status: true,
-    //         }
-    //     } catch (e) {
-    //         console.log(e)
-    //         return {
-    //             data: e,
-    //             status: false,
-    //         }
-    //     }
-    // },
-}
+    state: {
+        baseUrl: 'http://127.0.0.1:8000',
+    },
+    getters: {
+        baseUrl (state) {
+            return state.baseUrl
+        },
+    },
+    actions: {},
+    mutations: {},
+})
