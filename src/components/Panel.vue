@@ -5,10 +5,20 @@
 </template>
 
 <script>
+const twitch = window.Twitch.ext
 export default {
     name: 'Panel',
-    mounted () {
-        console.log(this.$store.getters['baseUrl'])
+    data () {
+        return {
+            token: null,
+            tuid: null,
+        }
+    },
+    async mounted () {
+        twitch.onAuthorized(auth => {
+            this.token = auth.token
+            this.tuid = auth.userId
+        })
     },
 }
 </script>
