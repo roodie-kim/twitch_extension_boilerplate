@@ -5,7 +5,10 @@ import Panel from './components/Panel'
 import router from './router'
 import store from './store/index'
 import Vuex from 'vuex'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
+Vue.use(VueAxios, axios)
 Vue.use(Vuex)
 Vue.config.productionTip = false
 

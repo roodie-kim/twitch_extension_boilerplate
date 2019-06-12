@@ -10,14 +10,20 @@ export default {
     name: 'Panel',
     data () {
         return {
-            token: null,
-            tuid: null,
+
         }
     },
+    methods: {
+        setBaseTwitchInfo (auth) {
+            this.$store.commit('setBaseTwitchInfo', auth)
+        },
+    },
     async mounted () {
-        twitch.onAuthorized(auth => {
-            this.token = auth.token
-            this.tuid = auth.userId
+        await twitch.onAuthorized(async auth => {
+            this.setBaseTwitchInfo(auth)
+
+            const userResponse = await this.$store.dispatch('fetchUser')
+            console.log(userResponse)
         })
     },
 }
